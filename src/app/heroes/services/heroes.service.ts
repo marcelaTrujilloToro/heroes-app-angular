@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Hero } from '../interfaces/hero';
-import { Observable, catchError, map, of } from 'rxjs';
+import { Observable, catchError, identity, map, of } from 'rxjs';
 import { environments } from '../../../environments/environments';
 
 @Injectable({ providedIn: 'root' })
@@ -25,7 +25,11 @@ export class HeroesService {
   }
 
   addHero(hero: Hero): Observable<Hero> {
-    return this.http.post<Hero>(`${this.baseUrl}/heroes`, hero);
+    return this.http.post<Hero>(`${this.baseUrl}/heroes`, {
+      ...hero,
+      id: (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1),
+      alt_imag: hero.alt_imag?.length ? hero.alt_imag : 'no-image.png',
+    });
   }
 
   updateHero(hero: Hero): Observable<Hero> {

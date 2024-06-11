@@ -166,6 +166,15 @@
       "alter_ego": "Norrin Radd",
       "first_appearance": "The Fantastic Four #48",
       "characters": "Norrin Radd"
+    },
+    {
+      "id": "79f4",
+      "superhero": "Mar",
+      "publisher": "DC Comics",
+      "alter_ego": "Marcela T T",
+      "first_appearance": "1991",
+      "characters": "Mar, Marce, Marces",
+      "alt_imag": "no-image.png"
     }
   ]
 }
